@@ -89,7 +89,8 @@
         'Export-DBOConfig',
         'ConvertTo-EncryptedString',
         'ConvertFrom-EncryptedString',
-        'Invoke-DBOQuery'
+        'Invoke-DBOQuery',
+        'Reset-DBOPackageRoot'
     )
 
     # Cmdlets to export from this module

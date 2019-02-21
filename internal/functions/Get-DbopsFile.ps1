@@ -24,18 +24,8 @@
                     $srcPath = $pkgPath = Resolve-Path $childItem.FullName -Relative
                 }
                 elseif ($Absolute) {
-                    $srcPath = $pkgPath = $childItem.FullName
-                }
-                elseif ($Root) {
-                    $srcPath = $pkgPath = $childItem.FullName -replace "^$([Regex]::Escape($Root.FullName))", '.'
-                }
-                else {
-                    $srcPath = $pkgPath = $childItem.Name
-                }
-                # replace some symbols here and there
-                $slash = [IO.Path]::DirectorySeparatorChar
-                $slashRegex = [Regex]::Escape(".$slash")
-                $srcPath = $srcPath -replace "^$slashRegex", ''
+                    $srcPath = $childItem.FullName
+                    $pkgPath = $childItem.Name
                 $pkgPath = $pkgPath -replace "^$slashRegex|:", ''
                 [DBOpsFile]::new($childItem, $srcPath, $pkgPath, $true)
             }
