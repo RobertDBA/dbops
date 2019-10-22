@@ -21,7 +21,11 @@ Write-Host -Object "appveyor.prep: Install PSScriptAnalyzer" -ForegroundColor Da
 Install-Module -Name PSScriptAnalyzer -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 Write-Host -Object "appveyor.prep: Install PowerShellGet" -ForegroundColor DarkGreen
 Get-module powershellget, packagemanagement -ListAvailable
-Install-Module -Name PowerShellGet -Repository PSGallery -Force -Scope CurrentUser | Out-Null
+Install-Module -Name PowerShellGet, packagemanagement -Repository PSGallery -Force -Scope CurrentUser | Out-Null
+Get-module powershellget, packagemanagement -ListAvailable
+Get-module powershellget, packagemanagement
+import-module powershellget, packagemanagement -Force
+Get-module powershellget, packagemanagement
 
 # workaround for https://github.com/OneGet/oneget/issues/475
 Write-Host -Object "appveyor.prep: Install Loop Dependecy fix" -ForegroundColor DarkGreen
