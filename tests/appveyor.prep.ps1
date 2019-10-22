@@ -22,6 +22,9 @@ Install-Module -Name PSScriptAnalyzer -Repository PSGallery -Force -Scope Curren
 Write-Host -Object "appveyor.prep: Install PowerShellGet" -ForegroundColor DarkGreen
 Install-Module -Name PowerShellGet -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 
+# workaround for https://github.com/OneGet/oneget/issues/475
+Install-Package System.Diagnostics.DiagnosticSource -RequiredVersion 4.5.1 -Provider nuget -Source https://www.nuget.org/api/v2
+
 # Set logging parameters
 Set-PSFConfig -FullName psframework.logging.filesystem.maxmessagefilebytes -Value (100 * 1024 * 1024) -PassThru | Register-PSFConfig
 Set-PSFConfig -FullName psframework.logging.filesystem.maxtotalfoldersize -Value (500 * 1024 * 1024) -PassThru | Register-PSFConfig
