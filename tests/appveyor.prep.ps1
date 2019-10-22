@@ -20,6 +20,7 @@ Install-Module -Name ziphelper -Repository PSGallery -Force -Scope CurrentUser |
 Write-Host -Object "appveyor.prep: Install PSScriptAnalyzer" -ForegroundColor DarkGreen
 Install-Module -Name PSScriptAnalyzer -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 Write-Host -Object "appveyor.prep: Install PowerShellGet" -ForegroundColor DarkGreen
+Get-module powershellget -ListAvailable
 Install-Module -Name PowerShellGet -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 
 # workaround for https://github.com/OneGet/oneget/issues/475
