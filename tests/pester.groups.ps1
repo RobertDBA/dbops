@@ -13,7 +13,7 @@ $TestsRunGroups = @{
         "$ModuleBase\tests\postgresql\*"
     )
     "default"    = @(
-        "$ModuleBase\tests\*"
+        "$ModuleBase\tests\Install-DBOSup*"
     )
     "mysql"      = @(
         "$ModuleBase\tests\mysql\*"
