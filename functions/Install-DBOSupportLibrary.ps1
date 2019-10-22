@@ -80,7 +80,8 @@ Function Install-DBOSupportLibrary {
             # Install dependencies
             foreach ($package in $packagesToUpdate) {
                 Write-PSFMessage -Level Verbose -Message "Installing package $($package.Name)($($package.Version))"
-                Install-Package -Source $packageSource.Name -Name $package.Name -RequiredVersion $package.Version -Force:$Force -Scope:$Scope -SkipDependencies -Verbose 4>&1
+                $result = $(Install-Package -Source $packageSource.Name -Name $package.Name -RequiredVersion $package.Version -Force:$Force -Scope:$Scope -SkipDependencies -Verbose) 4>&1
+                Write-Host $result
             }
         }
     }
