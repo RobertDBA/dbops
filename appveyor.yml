@@ -42,9 +42,9 @@ for:
   - matrix:
       only:
         - image: Ubuntu1804
-          scenario: all
     environment:
         mssql_instance: localhost
+        scenario: all
     services:
       - mssql
       - mysql

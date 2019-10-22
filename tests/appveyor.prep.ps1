@@ -23,9 +23,11 @@ Write-Host -Object "appveyor.prep: Install PowerShellGet" -ForegroundColor DarkG
 Install-Module -Name PowerShellGet -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 
 # workaround for https://github.com/OneGet/oneget/issues/475
-Install-Package System.Diagnostics.DiagnosticSource -RequiredVersion 4.5.1 -Provider nuget -Source https://www.nuget.org/api/v2 -Force -Scope CurrentUser | Out-Null
-Install-Package System.Net.Http -Provider nuget -Source https://www.nuget.org/api/v2 -Force -Scope CurrentUser | Out-Null
-Install-Package System.Diagnostics.DiagnosticSource -Provider nuget -Source https://www.nuget.org/api/v2 -Force -Scope CurrentUser | Out-Null
+Write-Host -Object "appveyor.prep: Install Loop Dependecy fix" -ForegroundColor DarkGreen
+Install-Package System.Numerics.Vectors -provider Nuget -Source https://www.nuget.org/api/v2 -SkipDependencies -Force | Out-Null
+# Install-Package System.Diagnostics.DiagnosticSource -RequiredVersion 4.5.1 -Provider nuget -Source https://www.nuget.org/api/v2 -Force -Scope CurrentUser | Out-Null
+# Install-Package System.Net.Http -Provider nuget -Source https://www.nuget.org/api/v2 -Force -Scope CurrentUser | Out-Null
+# Install-Package System.Diagnostics.DiagnosticSource -Provider nuget -Source https://www.nuget.org/api/v2 -Force -Scope CurrentUser | Out-Null
 
 # Set logging parameters
 Set-PSFConfig -FullName psframework.logging.filesystem.maxmessagefilebytes -Value (100 * 1024 * 1024) -PassThru | Register-PSFConfig
