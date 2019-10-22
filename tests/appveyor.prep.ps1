@@ -10,15 +10,17 @@
 
 # "Get Pester manually"
 Write-Host -Object "appveyor.prep: Install Pester" -ForegroundColor DarkGreen
-Install-Module -Name Pester -Repository PSGallery -Force -Scope CurrentUser| Out-Null
+Install-Module -Name Pester -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 Write-Host -Object "appveyor.prep: Install Assert" -ForegroundColor DarkGreen
-Install-Module -Name Assert -Repository PSGallery -Force -Scope CurrentUser| Out-Null
+Install-Module -Name Assert -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 Write-Host -Object "appveyor.prep: Install PSFramework" -ForegroundColor DarkGreen
-Install-Module -Name PSFramework -Repository PSGallery -Force -Scope CurrentUser| Out-Null
+Install-Module -Name PSFramework -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 Write-Host -Object "appveyor.prep: Install ziphelper" -ForegroundColor DarkGreen
-Install-Module -Name ziphelper -Repository PSGallery -Force -Scope CurrentUser| Out-Null
+Install-Module -Name ziphelper -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 Write-Host -Object "appveyor.prep: Install PSScriptAnalyzer" -ForegroundColor DarkGreen
-Install-Module -Name PSScriptAnalyzer -Repository PSGallery -Force -Scope CurrentUser| Out-Null
+Install-Module -Name PSScriptAnalyzer -Repository PSGallery -Force -Scope CurrentUser | Out-Null
+Write-Host -Object "appveyor.prep: Install PowerShellGet" -ForegroundColor DarkGreen
+Install-Module -Name PowerShellGet -Repository PSGallery -Force -Scope CurrentUser | Out-Null
 
 # Set logging parameters
 Set-PSFConfig -FullName psframework.logging.filesystem.maxmessagefilebytes -Value (100 * 1024 * 1024) -PassThru | Register-PSFConfig
