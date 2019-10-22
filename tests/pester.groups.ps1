@@ -2,7 +2,7 @@
 
 $TestsRunGroups = @{
     "all"        = @(
-        "$ModuleBase\tests\*"
+        "$ModuleBase\tests\Install-DBOSup*"
         "$ModuleBase\tests\mysql\*"
         "$ModuleBase\tests\postgresql\*"
         #    "$ModuleBase\tests\oracle\*"
